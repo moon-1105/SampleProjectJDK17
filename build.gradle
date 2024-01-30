@@ -43,15 +43,16 @@ allprojects {
 }
 
 jib {
-    /**
+    from {
+        image = 'amazoncorretto:17-alpine-jdk'
+    }
     to {
-        image = "xxxxxxxxxxx.dkr.ecr.ap-northeast-2.amazonaws.com/{REPOSITORY_NAME}"
+        image = "<ecr주소>"
         credHelper = 'ecr-login'
         tags = ['latest', "${project.name}-" + System.currentTimeMillis()]
-    }**/
+    }
     container {
-        jvmFlags = ['-Xms512m', '-Xdebug']
-        mainClass = 'com.example.demo.DemoApplication'
+        mainClass = 'com.testApp.SampleApplication'
         args = []
         ports = ['8080/tcp']
     }
