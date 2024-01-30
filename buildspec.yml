@@ -13,9 +13,5 @@ phases:
   build:
     commands:
       - echo Building the Spring Boot application...
-      - chmod +x ./gradlew jib
-      - ./gradlew clean build
-
-artifacts:
-  files:
-    - build/libs/*.jar
+      - chmod +x ./gradlew
+      - ./gradlew jib 
